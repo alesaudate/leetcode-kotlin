@@ -1,23 +1,15 @@
 package addtwonumbers
 
 fun main() {
-    val l1 = ListNode(9).also {
-        it.next = ListNode(9).also {
-            it.next = ListNode(9).also {
-                it.next = ListNode(9).also {
-                    it.next = ListNode(9).also {
-                        it.next = ListNode(9).also {
-                            it.next = ListNode(9)
-                        }
-                    }
-                }
-            }
+    val l1 = ListNode(2).also {
+        it.next = ListNode(4).also {
+            it.next = ListNode(9)
         }
     }
 
-    val l2 = ListNode(9).also {
-        it.next = ListNode(9).also {
-            it.next = ListNode(9).also {
+    val l2 = ListNode(5).also {
+        it.next = ListNode(6).also {
+            it.next = ListNode(4).also {
                 it.next = ListNode(9)
             }
         }
@@ -45,8 +37,8 @@ class Solution {
         var remainder = 0
 
 
-        while(l1Node != null) {
-            val sum = (l1Node.`val` + (l2Node?.`val` ?: 0)) + remainder
+        while(l1Node != null || l2Node != null) {
+            val sum = ((l1Node?.`val` ?: 0) + (l2Node?.`val` ?: 0)) + remainder
             val digit = (sum % 10)
             remainder = sum / 10
             if (result == null) {
@@ -57,7 +49,7 @@ class Solution {
                 result.next = newNode
                 result = newNode
             }
-            l1Node = l1Node.next
+            l1Node = l1Node?.next
             l2Node = l2Node?.next
         }
 
