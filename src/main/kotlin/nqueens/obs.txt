@@ -1,0 +1,30 @@
+
+n=5
+tam=5/2 => 2 resta 1
+
+
+comeca nos indices pares
+
+R x x x x  => 0
+x x R x x  => 2
+x x x x R  => 4
+x R x x x  => 1
+x x x R x  => 3
+
+
+ou comeca nos indices impares
+
+x R x x x  => 1
+x x x R x  => 3
+R x x x x  => 0
+x x R x x  => 2
+x x x x R  => 4
+
+
+mas tambem pode dar shift nos indices para, ao inves de comecarem com 0/1 , comecar em 2/3 , por exemplo:
+
+x x R x x  => 2
+x x x x R  => 4
+R x x x x  => 0
+x x x R x  => 3
+x R x x x  => 1
